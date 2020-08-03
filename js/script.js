@@ -184,17 +184,17 @@ initMap = function () {
     var markers = [
         {
             coords: { lat: 44.604742, lng: 40.098790 },
-            iconImage: '../img/contacts/mark.svg',
+            iconImage: './img/contacts/mark.svg',
             content: '<div class="map-content"> <div class="map-content__title">Центральный офис</div> <div class="map-content__description">г.Майкоп, ул. Первомайская, 229</div> </div>',
         },
         {
             coords: { lat: 44.600002, lng: 40.090 },
-            iconImage: '../img/contacts/mark.svg',
+            iconImage: './img/contacts/mark.svg',
             content: '<div class="map-content"> <div class="map-content__title">Черёмушки, офис 2</div> <div class="map-content__description">г.Майкоп, ул. Первомайская, 228</div> </div>',
         },
         {
             coords: { lat: 44.60302, lng: 40.088790 },
-            iconImage: '../img/contacts/mark.svg',
+            iconImage: './img/contacts/mark.svg',
             content: '<div class="map-content"> <div class="map-content__title">Черёмушки, офис 3</div> <div class="map-content__description">г.Майкоп, ул. Первомайская, 227</div> </div>',
         },
     ];
