@@ -176,15 +176,15 @@ initMap = function initMap() {
   var options3 = {
     zoom: 14,
     center: {
-      lat: 44.60742,
-      lng: 40.0900
+      lat: 44.59900,
+      lng: 40.0000
     },
     disableDefaultUI: true
   }; // New map
 
   var map = new google.maps.Map(document.getElementById('map'), options);
-  var map2 = new google.maps.Map(document.getElementById('map2'), options);
-  var map3 = new google.maps.Map(document.getElementById('map3'), options); // Array of markers
+  var map2 = new google.maps.Map(document.getElementById('map2'), options2);
+  var map3 = new google.maps.Map(document.getElementById('map3'), options3); // Array of markers
 
   var markers = [{
     coords: {
