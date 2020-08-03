@@ -1336,11 +1336,13 @@ body {
     background: url(../img/contacts/bg.png) no-repeat -40% 0; }
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 1200px) {
   .container {
     overflow: hidden;
   }
+}
 
+@media screen and (max-width: 991px) {
   .calculate-result__column {
     padding: 20px 10px;
   }
