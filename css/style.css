@@ -53,9 +53,11 @@ body {
   display: block;
   width: 100%;
   cursor: pointer;
+  position: relative;
   -webkit-transition: 0.3s ease all 0s;
   -o-transition: 0.3s ease all 0s;
   transition: 0.3s ease all 0s;
+  overflow: hidden;
 }
 
 .button:hover {
@@ -64,8 +66,55 @@ body {
   text-decoration: none;
 }
 
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-animation: flare 3s ease-in-out 5s infinite;
+          animation: flare 3s ease-in-out 5s infinite;
+  -webkit-transform: translateX(-100px) skewX(-45deg);
+      -ms-transform: translateX(-100px) skewX(-45deg);
+          transform: translateX(-100px) skewX(-45deg);
+}
+
 .button:focus {
   outline: 0;
+}
+
+@-webkit-keyframes flare {
+  from {
+    -webkit-transform: translateX(-100px) skewX(-45deg);
+            transform: translateX(-100px) skewX(-45deg);
+  }
+
+  to {
+    -webkit-transform: translateX(600px) skewX(-45deg);
+            transform: translateX(600px) skewX(-45deg);
+  }
+}
+
+@keyframes flare {
+  from {
+    -webkit-transform: translateX(-100px) skewX(-45deg);
+            transform: translateX(-100px) skewX(-45deg);
+  }
+
+  to {
+    -webkit-transform: translateX(600px) skewX(-45deg);
+            transform: translateX(600px) skewX(-45deg);
+  }
+}
+
+.coach .button {
+  background: #00be90;
+}
+
+.coach .button:hover {
+  background: #00a67e;
 }
 
 .input-wrapper {
@@ -226,6 +275,10 @@ body {
   z-index: 2;
 }
 
+.coach .icon-bg::before {
+  background: url(../img/coach_icon_bg.svg);
+}
+
 .header {
   padding: 8px 0;
   -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
@@ -281,6 +334,10 @@ body {
   letter-spacing: -0.7px;
 }
 
+.coach header {
+  padding: 12px 0;
+}
+
 .logo {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -297,6 +354,31 @@ body {
 
 .logo__img img {
   max-width: 190px;
+}
+
+.logo__img--coach {
+  padding-right: 29px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #176cf1;
+  letter-spacing: -1px;
+  border: none;
+  position: relative;
+}
+
+.logo__img--coach::after {
+  content: '';
+  background: #c3d5ee;
+  display: block;
+  width: 1px;
+  height: 16px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .logo__label {
@@ -383,7 +465,7 @@ body {
 }
 
 .calculate-result__column {
-  border-right: 1px solid #b4c9e7;
+  border-right: 1px solid #dfe8f5;
   padding: 30px 27px 25px;
 }
 
@@ -482,6 +564,252 @@ body {
   font-weight: 700;
   font-size: calc(14px + 4 * ((100vw - 320px) / (1440 - 320)));
   line-height: calc(24 / 18);
+}
+
+.no-webp .coach-calculate {
+  background: url(../img/calculator/coach/bg.png) no-repeat center -80%; }
+
+.coach-calculate {
+  padding: 22px 0;
+}
+
+.coach-calculate__title {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 38px;
+}
+
+.coach-calculate__main-tab-content {
+  background: #fff;
+  border-radius: 0 25px 0 25px;
+  padding: 40px 0 0;
+  margin-bottom: 25px;
+}
+
+.coach-calculate__sub-tab-content {
+  padding-top: 40px;
+  border-top: 1px solid #c3d5ee;
+}
+
+.main-tabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.main-tabs__link {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+  font-weight: 700;
+  font-size: calc(18px + 6 * ((100vw - 320px) / (1440 - 320)));
+  line-height: calc(32 / 24);
+  text-align: center;
+  color: #2f3640;
+  padding: 0 5px 20px;
+}
+
+.main-tabs__link:hover {
+  text-decoration: none;
+  color: #176cf1;
+}
+
+.main-tabs__link.active {
+  color: #176cf1;
+  border-bottom: 4px solid #176cf1;
+  position: relative;
+}
+
+.main-tabs__link.active::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 10px;
+  background: url(../img/calculator/coach/triangle.svg) no-repeat;
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  -webkit-transform: translate(-50%, 100%);
+      -ms-transform: translate(-50%, 100%);
+          transform: translate(-50%, 100%);
+}
+
+.main-tab-content__target {
+  font-weight: 700;
+  font-size: calc(14px + 4 * ((100vw - 320px) / (1440 - 320)));
+  line-height: calc(28 / 18);
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.main-tab-content__wrapper {
+  max-width: 882px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.sub-tabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.sub-tabs__link {
+  display: block;
+  margin: 6px 4px;
+  padding: 4px 24px 6px 18px;
+  background: #176cf1;
+  color: #2f3640;
+  background: #fff;
+  font-weight: 700;
+  font-size: calc(13px + 3 * ((100vw - 320px) / (1440 - 320)));
+  line-height: calc(24 / 16);
+  border-radius: 10px 0 10px 0;
+  border: 1px solid #c3d5ee;
+  -webkit-transition: 0.3s ease all 0s;
+  -o-transition: 0.3s ease all 0s;
+  transition: 0.3s ease all 0s;
+}
+
+.sub-tabs__link:hover {
+  border-color: #176cf1;
+  text-decoration: none;
+  color: #2f3640;
+}
+
+.sub-tabs__link.active {
+  background: #176cf1;
+  border-color: #176cf1;
+  color: #fff;
+}
+
+.sub-tab-content__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 -16px;
+}
+
+.sub-tab-content__photo {
+  padding: 0 16px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 188px;
+          flex: 0 0 188px;
+}
+
+.sub-tab-content__wrapper {
+  padding: 0 16px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+.sub-tab-content__name {
+  font-weight: 700;
+  font-size: calc(16px + 14 * ((100vw - 320px) / (1440 - 320)));
+  line-height: calc(40 / 30);
+  margin-bottom: 24px;
+}
+
+.sub-tab-content__form {
+  padding-top: 30px;
+}
+
+.sub-tab-content__form .calculate-result {
+  margin-bottom: 0;
+}
+
+.sub-tab-content p {
+  font-size: calc(14px + 4 * ((100vw - 320px) / (1440 - 320)));
+  line-height: calc(28 / 18);
+  margin-bottom: 17px;
+}
+
+.specialty {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.specialty__img {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 17px;
+          flex: 0 0 17px;
+  margin: 3px 15px 0 5px;
+}
+
+.specialty__text {
+  max-width: 450px;
+}
+
+.summary {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 12px 0;
+  padding-top: 10px;
+  max-width: 760px;
+}
+
+.summary__item {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 153px;
+          flex: 0 1 153px;
+  padding: 0 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+}
+
+.summary__item::before {
+  content: "";
+  background: #176cf1;
+  display: block;
+  width: 2px;
+  height: 84%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.summary__title {
+  font-size: calc(13px + 1 * ((100vw - 320px) / (1440 - 320)));
+  line-height: calc(18 / 14);
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-bottom: 8px;
+}
+
+.summary__text {
+  font-weight: 700;
+  font-size: calc(14px + 4 * ((100vw - 320px) / (1440 - 320)));
+  line-height: calc(24 / 18);
+}
+
+.student-success {
+  padding-top: 36px;
+}
+
+.student-success__title {
+  font-weight: 700;
+  font-size: calc(14px + 4 * ((100vw - 320px) / (1440 - 320)));
+  line-height: calc(24 / 18);
+  margin-bottom: 16px;
 }
 
 .site-form {
@@ -656,6 +984,9 @@ body {
       -ms-transform: translate(-50%, 0);
           transform: translate(-50%, 0);
 }
+
+.no-webp .coach-contacts {
+  background: url(../img/contacts/coach/bg1.png) no-repeat left; }
 
 .nav-tabs {
   border: none;
@@ -861,6 +1192,9 @@ body {
 .first-screen {
   padding: 32px 0;
 }
+
+.no-webp .first-screen--coach {
+  background: url(../img/first-screen/coach-bg1.png) no-repeat top center; }
 
 .first-screen__title {
   text-align: center;
@@ -1231,7 +1565,7 @@ body {
     display: block;
     width: 1px;
     height: 90%;
-    background: #b4c9e7;
+    background: #dfe8f5;
     position: absolute;
     top: 0;
     right: 0;
@@ -1281,6 +1615,10 @@ body {
     margin-left: -29px;
   }
 
+  .sub-tab-content__form {
+    margin: 0 -60px;
+  }
+
   .contacts__link:hover {
     color: #ff3e6d;
     text-decoration: none;
@@ -1303,6 +1641,12 @@ body {
   }
 }
 
+@media screen and (min-width: 1020px) {
+  .sub-tab-content__form {
+    margin: 0 -73px;
+  }
+}
+
 @media screen and (min-width: 1250px) {
   .learning__image img {
     max-width: inherit;
@@ -1314,6 +1658,16 @@ body {
     font-size: 40px;
     line-height: 49px;
   }
+}
+
+@media screen and (max-width: 1900px) {
+  .no-webp .coach-calculate {
+    background: url(../img/calculator/coach/bg.png) no-repeat center -40%; }
+}
+
+@media screen and (max-width: 1600px) {
+  .no-webp .coach-calculate {
+    background: url(../img/calculator/coach/bg.png) no-repeat center -60%; }
 }
 
 @media screen and (max-width: 1440px) {
@@ -1334,18 +1688,27 @@ body {
 
   .no-webp .contacts {
     background: url(../img/contacts/bg.png) no-repeat -40% 0; }
+
+  .no-webp .coach-contacts {
+    background: url(../img/contacts/coach/bg1.png) no-repeat left; }
 }
 
 @media screen and (max-width: 1200px) {
   .container {
     overflow: hidden;
   }
+
+  .no-webp .coach-calculate {
+    background: url(../img/calculator/coach/bg.png) no-repeat center -140%; }
 }
 
 @media screen and (max-width: 991px) {
   .calculate-result__column {
     padding: 20px 10px;
   }
+
+  .no-webp .coach-calculate {
+    background: url(../img/calculator/coach/bg.png) no-repeat center -230%; }
 
   .form-site {
     padding: 32px 20px 24px;
@@ -1488,6 +1851,29 @@ body {
     margin-right: 5px;
   }
 
+  .no-webp .coach-calculate {
+    background: url(../img/calculator/coach/bg.png) no-repeat center 0/100%; }
+
+  .coach-calculate__sub-tab-content {
+    padding-top: 20px;
+  }
+
+  .sub-tab-content__row {
+    margin: 0 -8px;
+  }
+
+  .sub-tab-content__photo {
+    padding: 0 8px;
+  }
+
+  .sub-tab-content__wrapper {
+    padding: 0 8px;
+  }
+
+  .student-success {
+    padding-top: 15px;
+  }
+
   .teachers__card {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 50%;
@@ -1611,7 +1997,46 @@ body {
     -webkit-box-flex: 1;
         -ms-flex: 1 1 100%;
             flex: 1 1 100%;
-    padding: 15px 20px;
+    padding: 20px;
+  }
+
+  .coach-calculate__main-tab-content {
+    padding-top: 30px;
+  }
+
+  .main-tab-content__target {
+    margin-bottom: 8px;
+  }
+
+  .sub-tab-content__photo {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 30%;
+            flex: 0 0 30%;
+  }
+
+  .sub-tab-content__photo img {
+    max-width: 100%;
+  }
+
+  .sub-tab-content__name {
+    margin-bottom: 15px;
+  }
+
+  .sub-tab-content__form {
+    padding-top: 0;
+  }
+
+  .sub-tab-content p {
+    margin-bottom: 10px;
+  }
+
+  .summary {
+    display: block;
+    margin: 0;
+  }
+
+  .summary__item {
+    margin-bottom: 20px;
   }
 
   .form-site {
@@ -1654,6 +2079,10 @@ body {
 
   .contacts__tab {
     padding: 0 8px;
+  }
+
+  .coach-contacts {
+    padding-top: 20px;
   }
 
   .accordion__card {
@@ -1753,10 +2182,50 @@ body {
   }
 }
 
+@media screen and (max-width: 475px) {
+  .main-tabs__link {
+    padding-bottom: 5px;
+  }
+}
+
 @media screen and (max-width: 450px) {
   .button {
     padding: 10px;
     text-align: center;
+  }
+
+  .sub-tabs__link {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 47%;
+            flex: 1 1 47%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 0 5px;
+    white-space: nowrap;
+  }
+
+  .sub-tab-content__row {
+    display: block;
+    margin: 0;
+  }
+
+  .sub-tab-content__photo {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    padding: 0;
+    margin-bottom: 15px;
+  }
+
+  .sub-tab-content__wrapper {
+    padding: 0;
   }
 
   .form-site {
@@ -1801,15 +2270,57 @@ body {
   }
 }
 
+@media screen and (max-width: 350px) {
+  .main-tab-content__wrapper {
+    padding: 0 10px;
+  }
+}
+
 .webp .calculate { background: url(../img/calculator/bg@2x.webp) no-repeat 37% 0%/78%; }
+
+.webp .coach-calculate { background: url(../img/calculator/coach/bg.webp) no-repeat center -80%; }
 
 .webp .contacts { background: url(../img/contacts/bg.webp) no-repeat; }
 
+.webp .coach-contacts { background: url(../img/contacts/coach/bg1.webp) no-repeat left; }
+
 .webp .first-screen { background: url(../img/first-screen/bg1.webp) no-repeat top center; }
 
+.webp .first-screen--coach { background: url(../img/first-screen/coach-bg1.webp) no-repeat top center; }
+
 .webp .learning { background: url(../img/learning/bg.webp) no-repeat 32% 3%; }
+
+@media screen and (max-width: 1900px) {
+
+  .webp .coach-calculate { background: url(../img/calculator/coach/bg.webp) no-repeat center -40%; }
+}
+
+@media screen and (max-width: 1600px) {
+
+  .webp .coach-calculate { background: url(../img/calculator/coach/bg.webp) no-repeat center -60%; }
+}
 
 @media screen and (max-width: 1440px) {
 
   .webp .contacts { background: url(../img/contacts/bg.webp) no-repeat -40% 0; }
+}
+
+@media screen and (max-width: 1440px) {
+
+  .webp .coach-contacts { background: url(../img/contacts/coach/bg1.webp) no-repeat left; }
+}
+
+@media screen and (max-width: 1200px) {
+
+  .webp .coach-calculate { background: url(../img/calculator/coach/bg.webp) no-repeat center -140%; }
+}
+
+@media screen and (max-width: 991px) {
+
+  .webp .coach-calculate { background: url(../img/calculator/coach/bg.webp) no-repeat center -230%; }
+}
+
+@media screen and (max-width: 767px) {
+
+  .webp .coach-calculate { background: url(../img/calculator/coach/bg.webp) no-repeat center 0/100%; }
 }
