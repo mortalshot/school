@@ -199,10 +199,60 @@ initMap = function () {
         },
     ];
 
+    // Array of markers
+    var markers2 = [
+        {
+            coords: { lat: 44.60742, lng: 40.0900 },
+            iconImage: 'img/contacts/mark.svg',
+            content: '<div class="map-content"> <div class="map-content__title">Центральный офис</div> <div class="map-content__description">г.Майкоп, ул. Первомайская, 229</div> </div>',
+        },
+        {
+            coords: { lat: 44.60542, lng: 40.0970 },
+            iconImage: 'img/contacts/mark.svg',
+            content: '<div class="map-content"> <div class="map-content__title">Черёмушки, офис 2</div> <div class="map-content__description">г.Майкоп, ул. Первомайская, 228</div> </div>',
+        },
+        {
+            coords: { lat: 44.60342, lng: 40.0990 },
+            iconImage: 'img/contacts/mark.svg',
+            content: '<div class="map-content"> <div class="map-content__title">Черёмушки, офис 3</div> <div class="map-content__description">г.Майкоп, ул. Первомайская, 227</div> </div>',
+        },
+    ];
+
+    // Array of markers
+    var markers3 = [
+        {
+            coords: { lat: 44.59900, lng: 40.0000 },
+            iconImage: 'img/contacts/mark.svg',
+            content: '<div class="map-content"> <div class="map-content__title">Центральный офис</div> <div class="map-content__description">г.Майкоп, ул. Первомайская, 229</div> </div>',
+        },
+        {
+            coords: { lat: 44.6500, lng: 40.0210 },
+            iconImage: 'img/contacts/mark.svg',
+            content: '<div class="map-content"> <div class="map-content__title">Черёмушки, офис 2</div> <div class="map-content__description">г.Майкоп, ул. Первомайская, 228</div> </div>',
+        },
+        {
+            coords: { lat: 44.69900, lng: 40.1000 },
+            iconImage: 'img/contacts/mark.svg',
+            content: '<div class="map-content"> <div class="map-content__title">Черёмушки, офис 3</div> <div class="map-content__description">г.Майкоп, ул. Первомайская, 227</div> </div>',
+        },
+    ];
+
     // Loop through markers
     for (var i = 0; i < markers.length; i++) {
         // Add marker
         addMarker(markers[i]);
+    }
+
+    // Loop through markers
+    for (var i = 0; i < markers2.length; i++) {
+        // Add marker
+        addMarker2(markers2[i]);
+    }
+
+    // Loop through markers
+    for (var i = 0; i < markers3.length; i++) {
+        // Add marker
+        addMarker3(markers3[i]);
     }
 
     // Add Marker Function
@@ -210,7 +260,6 @@ initMap = function () {
         var marker = new google.maps.Marker({
             position: props.coords,
             map: map,
-
         });
 
         // Check for customicon
@@ -228,6 +277,56 @@ initMap = function () {
                 infoWindow.open(map, marker);
             });
             infoWindow.open(map, marker);
+        }
+    }
+
+    // Add Marker Function
+    function addMarker2(props) {
+        var marker = new google.maps.Marker({
+            position: props.coords,
+            map: map2,
+        });
+
+        // Check for customicon
+        if (props.iconImage) {
+            marker.setIcon(props.iconImage);
+        }
+
+        // Check content
+        if (props.content) {
+            var infoWindow = new google.maps.InfoWindow({
+                content: props.content
+            });
+
+            marker.addListener('click', function () {
+                infoWindow.open(map2, marker);
+            });
+            infoWindow.open(map2, marker);
+        }
+    }
+
+    // Add Marker Function
+    function addMarker3(props) {
+        var marker = new google.maps.Marker({
+            position: props.coords,
+            map: map3,
+        });
+
+        // Check for customicon
+        if (props.iconImage) {
+            marker.setIcon(props.iconImage);
+        }
+
+        // Check content
+        if (props.content) {
+            var infoWindow = new google.maps.InfoWindow({
+                content: props.content
+            });
+
+            marker.addListener('click', function () {
+                infoWindow.open(map3, marker);
+            });
+            infoWindow.open(map3, marker);
         }
     }
 };
